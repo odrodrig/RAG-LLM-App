@@ -31,8 +31,7 @@ Run `Apply Plan`
 Required: 
     [terraform cli](https://developer.hashicorp.com/terraform/install)
 
-1. Push this code into public github.com (i.e. https://github.com/\<org\>/RAG-LLM-App)
-2. Change into the directory `cd codeengine-terraform-setup`
+1. Change into the directory `cd codeengine-terraform-setup`
 3. Edit the `terraform.tfvars` file and fill in all the required values. Note for this api, the WD variables are unnecessary and can be left as default.
 5. Run `terraform init` to initialize your terraform environment
 6. Run `terraform plan` to see what resources will be created
