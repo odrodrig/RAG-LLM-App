@@ -61,7 +61,7 @@ resource "ibm_cr_namespace" "rg_namespace" {
   resource_group_id = data.ibm_resource_group.group.id
 }
 
-# Create a secret in code engine for pull the image
+# Create a secret in code engine for pulling the image
 resource "ibm_code_engine_secret" "code_engine_secret_instance" {
   project_id = local.project_id
   name = local.secret
