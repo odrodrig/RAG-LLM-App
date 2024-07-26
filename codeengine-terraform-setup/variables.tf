@@ -104,13 +104,13 @@ variable "wxd_url" {
 variable "wd_api_key" {
   type        = string
   description = "watson discovery apikey"
-  default = ""
+  default = "************"
 }
 
 variable "wd_url" {
   type        = string
   description = "watson discovery URL"
-  default = ""
+  default = "https://<url>"
 }
 
 variable "region" {
