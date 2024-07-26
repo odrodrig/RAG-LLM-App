@@ -78,11 +78,12 @@ resource "ibm_code_engine_secret" "code_engine_secret_instance" {
 resource "ibm_code_engine_build" "code_engine_build_instance" {
   project_id    = local.project_id
   name          = local.buildname
-  output_image  = "us.icr.io/${local.cr_namespace}/rag-llm"
+  output_image  = "us.icr.io/${local.cr_namespace}/${local.imagename}"
   output_secret = ibm_code_engine_secret.code_engine_secret_instance.name
   source_url    = "${var.source_url}"
   source_revision = "${var.source_revision}"
   strategy_type = "dockerfile"
+  strategy_spec_file = "Dockerfile"
 }
 
 # Create a build run
