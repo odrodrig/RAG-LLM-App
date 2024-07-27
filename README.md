@@ -2,7 +2,9 @@
 
 This README will guide you through the steps to deploy the project locally, on OpenShift or IBM Code Engine. Additionally, you will learn how to access the Swagger documentation once the project is deployed.
 
-## Deploying locally
+## Deploying the application
+
+### Deploying locally
 
 To run application on your local machine, follow these steps:
 
@@ -39,15 +41,15 @@ To run application on your local machine, follow these steps:
 
     To access Swagger go to http://0.0.0.0:4050/docs
 
-## Deploying onto Code Engine
+### Deploying onto Code Engine
 
 You can deploy this application onto [IBM Cloud Code Engine](https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started) using Terraform scripts. See the steps [here.](./codeengine-terraform-setup/README.md)
 
-## Deploying onto OpenShift
+### Deploying onto OpenShift
 
 You can deploy this application onto a provisioned [Red Hat OpenShift](https://cloud.ibm.com/docs/openshift?topic=openshift-getting-started) cluster. See the steps [here.](./openship-setup/README.md)
 
-## Using the API
+## Using the application APIs
 
 After deploying the application, you can now test the API
 
@@ -208,4 +210,8 @@ curl --location '<application url>/queryLLM' \
   "question": "<your question>",
 }
 ```
-4. Hit the blue `SEND` button and wait for your result.
+4. Hit the blue `SEND` button and wait for your result. 
+
+## Connecting this application to watsonx Assistant
+
+You can connect watsonx Assistant to invoke the `queryLLM` or `queryWDLLM` APIs. See the steps [here.](./watsonx-assistant-setup/README.md)
