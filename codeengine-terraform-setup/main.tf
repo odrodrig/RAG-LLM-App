@@ -82,6 +82,7 @@ resource "ibm_code_engine_build" "code_engine_build_instance" {
   output_secret = ibm_code_engine_secret.code_engine_secret_instance.name
   source_url    = "${var.source_url}"
   source_revision = "${var.source_revision}"
+  source_context_dir = "${var.source_context_dir}"
   strategy_type = "dockerfile"
   strategy_spec_file = "Dockerfile"
 }
@@ -96,7 +97,9 @@ resource "restapi_object" "buildrun" {
       output_secret = ibm_code_engine_secret.code_engine_secret_instance.name
       source_url    = "${var.source_url}"
       source_revision = "${var.source_revision}"
+      source_context_dir = "${var.source_context_dir}"
       strategy_type = "dockerfile"
+      strategy_spec_file = "Dockerfile"
       timeout = 3600
     }
   )
