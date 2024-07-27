@@ -1,55 +1,61 @@
 variable "project_name" {
   type    = string
   default = "rag-llm"
+  description = "Name of Code Engine project"
 }
 
 variable "resource_group" {
   type    = string
   default = "rag-llm"
+  description = "Resource group where project and application will reside"
 }
 
 variable "source_url" {
   type    = string
   default = ""
+  description = "Git repo name"
 }
 
 variable "source_revision" {
   type    = string
   default = "main"
+  description = "Git branch name"
 }
 
 variable "source_context_dir" {
   type    = string
   default = "application"
+  description = "Subdirectory where Dockerfile and application files are located"
 }
 
 variable "cr_namespace" {
   type    = string
   default = "rag-images"
+  description = "Container Registry namespace"
 }
 
 variable "cr_secret" {
   type        = string
-  description = "ce build secret"
+  description = "Code Engine build secret"
   default = "buildsecret"
 }
 
 variable "cr_imagename" {
   type        = string
-  description = "ce build image"
-  default = "gen-llm"
+  description = "Code Engine build image"
+  default = "rag-llm"
 }
 
 variable "ce_buildname" {
   type        = string
-  description = "ce build name"
-  default = "gen-llm-build"
+  description = "Code Engine build name"
+  default = "rag-llm-build"
 }
 
 variable "ce_appname" {
   type        = string
-  description = "ce application name"
-  default = "gen-llm-service"
+  description = "Code Engine application name"
+  default = "rag-llm-service"
 }
 
 variable "cos_ibm_cloud_api_key" {
@@ -84,7 +90,7 @@ variable "wx_project_id" {
 
 variable "wx_url" {
   type        = string
-  description = "watsonx URL"
+  description = "watsonx URL with port number"
   default = ""
 }
 
@@ -119,7 +125,7 @@ variable "wd_url" {
 }
 
 variable "region" {
-  description = "Region"
+  description = "Region where Code Engine project will be created"
   type        = string
   default     = "us-south"
 }
