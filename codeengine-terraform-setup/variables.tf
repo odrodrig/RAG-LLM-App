@@ -18,6 +18,11 @@ variable "source_revision" {
   default = "main"
 }
 
+variable "source_context_dir" {
+  type    = string
+  default = "application"
+}
+
 variable "cr_namespace" {
   type    = string
   default = "rag-images"
