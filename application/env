@@ -17,10 +17,11 @@ COS_ENDPOINT_URL=""
 WX_URL="https://us-south.ml.cloud.ibm.com"
 WX_PROJECT_ID=""
 
-# Elasticsearch
+# Elasticsearch connection, used by searchLLM
 WXD_URL="<url>:<port>"
 WXD_USERNAME=""
 WXD_PASSWORD=""
 
+# Watson Discovery connection, used by searchWDLLM
 WD_API_KEY=""
 WD_URL=""
