@@ -189,7 +189,7 @@ The `queryWDLLM` API queries a connected **Watson Discovery** project then sends
 
 To execute this api from command line, use this command: 
 ```
-curl --location '<application url>/queryWXDLLM' \
+curl --location '<application url>/queryLLM' \
 --header 'Content-Type: application/json' \
 --header 'RAG-APP-API-Key: <your custom RAG-APP-API-KEY value>' \
 --data '{
@@ -198,7 +198,7 @@ curl --location '<application url>/queryWXDLLM' \
 ```
 ### Test from Postman
 
-1. Open a new tab and from the request type dropdown, select POST. In the url, paste your url (in this example, it's localhost): `http://127.0.0.1:4050/queryWXDLLM`
+1. Open a new tab and from the request type dropdown, select POST. In the url, paste your url (in this example, it's localhost): `http://127.0.0.1:4050/queryLLM`
 
 2. Under Authorization, choose type **API Key**, add the following key/value: `RAG-APP-API-Key`/`<value for RAG_APP_API_KEY from .env>`
 
