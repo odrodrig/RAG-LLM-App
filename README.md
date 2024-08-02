@@ -1,4 +1,6 @@
-# Watsonx Discovery & Watsonx.ai RAG Application
+# Watsonx.ai RAG Application
+
+This application exposes APIs to help set up a RAG pipeline using either **Watson Discovery** or **watsonx Discovery** (Elasticsearch) as the document respository.
 
 This README will guide you through the steps to deploy the project locally, on OpenShift or IBM Code Engine. Additionally, you will learn how to access the Swagger documentation once the project is deployed.
 
