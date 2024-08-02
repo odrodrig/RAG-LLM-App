@@ -47,7 +47,7 @@ You can deploy this application onto [IBM Cloud Code Engine](https://cloud.ibm.c
 
 ### Deploying onto OpenShift
 
-You can deploy this application onto a provisioned [Red Hat OpenShift](https://cloud.ibm.com/docs/openshift?topic=openshift-getting-started) cluster. See the steps [here.](./openship-setup/README.md)
+You can deploy this application onto a provisioned [Red Hat OpenShift](https://cloud.ibm.com/docs/openshift?topic=openshift-getting-started) cluster. See the steps [here.](./openshift-setup/README.md)
 
 ## Using the application APIs
 
