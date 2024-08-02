@@ -1,6 +1,10 @@
 # How to Deploy this Application on OpenShift
 
+<<<<<<< HEAD
 To deploy this project on OpenShift, follow these steps from the `RAG-LLM-App/application` subdirectory:
+=======
+To deploy this project on OpenShift, follow these steps to deploy this application on an OpenShift cluster
+>>>>>>> fb1222a (cleaning up)
 
 1. Log in to your OpenShift cluster:
 
@@ -19,21 +23,35 @@ To deploy this project on OpenShift, follow these steps from the `RAG-LLM-App/ap
 3. Build the application:
 
     ```bash
+<<<<<<< HEAD
     $ oc new-build --strategy docker --binary --name=rag-llm-app
 
     $ oc start-build rag-llm-app  --from-dir=. --follow --wait
+=======
+    $ oc new-build --strategy docker --binary --name=watsonx-texttosql-app
+
+    $ oc start-build watsonx-texttosql-app  --from-dir=. --follow --wait
+>>>>>>> fb1222a (cleaning up)
     ```
 
 4. Deploy the application:
 
     ```bash
+<<<<<<< HEAD
     $ oc new-app rag-llm-app --name=rag-llm-app
+=======
+    $ oc new-app watsonx-texttosql-app --name=watsonx-texttosql-app
+>>>>>>> fb1222a (cleaning up)
     ```
 
 5. Expose a Secure URL for this FastAPI app:
 
     ```bash
+<<<<<<< HEAD
     $ oc create route edge --service=rag-llm-app
+=======
+    $ oc create route edge --service=watsonx-texttosql-app
+>>>>>>> fb1222a (cleaning up)
     ```
 
     A quick sanity check with the url created from the route: `<url>/docs` will take you to the swagger ui.
