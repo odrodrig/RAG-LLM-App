@@ -7,7 +7,14 @@
     },
     "servers": [
       {
-        "url": ""
+        "url": "https://{llm_route}",
+        "description": "The Route to the application hosting the queryllm application",
+        "variables": {
+          "llm_route": {
+            "default": "https://rag-llm-app.********.ca-tor.codeengine.appdomain.cloud/",
+            "description": "The portion of the Route URL that follows https://"
+          }
+        }
       }
     ],
     "paths": {

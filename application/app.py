@@ -136,14 +136,16 @@ async def ingestDocs(request: ingestRequest, api_key: str = Security(get_api_key
 
     documents = await cos_reader.load_data()
     print(f"Total documents: {len(documents)}")
-    #print(f"Total documents: {len(documents)}\nExample document:\n{documents[0]}")
 
-    async_es_client = AsyncElasticsearch(
-        wxd_creds["wxdurl"],
-        basic_auth=(wxd_creds["username"], wxd_creds["password"]),
-        verify_certs=False,
-        request_timeout=3600,
-    )
+    try:
+        async_es_client = AsyncElasticsearch(
+            wxd_creds["wxdurl"],
+            basic_auth=(wxd_creds["username"], wxd_creds["password"]),
+            verify_certs=False,
+            request_timeout=3600,
+        )
+    except Exception as e:
+      return ingestResponse(response = json.dumps({"error": repr(e)}))
 
     await async_es_client.info()
 
@@ -163,17 +165,17 @@ async def ingestDocs(request: ingestRequest, api_key: str = Security(get_api_key
         text_field=es_index_text_field
     )
 
-    index = VectorStoreIndex.from_documents(
-        documents,
-        storage_context=StorageContext.from_defaults(vector_store=vector_store),
-        show_progress=True,
-        use_async=True
-    )
-
-    return ingestResponse(response="success: number of documents loaded " + str(len(documents)))
-    # except Exception as e:
-    #     return ingestResponse(response = json.dumps({"error": repr(e)}))
-
+    try:
+        index = VectorStoreIndex.from_documents(
+            documents,
+            storage_context=StorageContext.from_defaults(vector_store=vector_store),
+            show_progress=True,
+            use_async=True
+        )
+    except Exception as e:
+      return ingestResponse(response = json.dumps({"error": repr(e)}))
+    else:
+      return ingestResponse(response="success: number of documents loaded " + str(len(documents)))
 
 async def create_index(client, index_name, esIndexTextField, pipeline_name):
     print("Creating the index...")

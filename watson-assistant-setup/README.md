@@ -1,20 +1,20 @@
-# Steps to connect this application to watsonx Assistant
+# Steps to Connect this Application to watsonx Assistant
 
 You connect your assistant by using the api specification to add a custom extension.
 
 ### Download the api specification
 
-Download the [rag-app--openapi.json](./rag-app-openapi.json) specification file. 
+Download the [rag-app-openapi.json](./rag-app-openapi.json) specification file. 
 
 Use this specification file to create and add the extension to your assistant.
 
 ### Build and add extension
 
-1.  In your assistant, on the **Integrations** page, click **Build custom extension** and use the rag-app-openapi.json specification file to build a custom extension named `rag-app`. For general instructions on building any custom extension, see [Building the custom extension](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-build-custom-extension#building-the-custom-extension).
+1.  In your assistant, on the **Integrations** page, click **Build custom extension** and use the `rag-app-openapi.json` specification file to build a custom extension named `rag-app`. For general instructions on building any custom extension, see [Building the custom extension](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-build-custom-extension#building-the-custom-extension).
 
 1.  After you build the `rag-app` extension, and it appears on your **Integrations** page, click **Add** to add it to your assistant. For general instructions on adding any custom extension, see [Adding an extension to your assistant](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-add-custom-extension).
 
-1.  In **Authentication**, choose **OAuth 2.0**. Select **Custom apikey** as the grant type in the next dropdown, and then copy and paste your API key.
+1.  In **Authentication**, choose **OAuth 2.0**. Select **Custom apikey** as the grant type in the next dropdown, and then copy and paste your IBM Cloud API key.
 
 1.  In **Servers**, choose the region from which you would like to access the watsonx.ai service. `us-south` is selected as the default region. 
 
@@ -22,9 +22,9 @@ If you add apis and capabilities to this application, feel free to add them to t
 
 ## Upload sample action
 
-Use **Actions Global Settings** to upload the [`rag-app-actions.json`](./watsonx-actions.json) file in this directory to your assistant. For more information, see [Uploading](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-backup-restore#backup-restore-import). You may also need to refresh the action Preview chat, after uploading, to get all the session variables initialized before these actions will work correctly.
+Use **Actions Global Settings** to upload the [`rag-app-actions.json`](./watsonx-actions.json) file in this directory to your assistant. For more information, see [Uploading](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-backup-restore#backup-restore-import). You may also need to refresh the action **Preview** chat, after uploading, to get all the session variables initialized before these actions will work correctly.
 
-1. Under Variables/Created by you within the Actions page, set the `watsonx_project_id` session variable using [a project ID value from watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
+1. Under **Variables/Created** by you within the Actions page, set the `watsonx_project_id` session variable using [a project ID value from watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
 
 **NOTE**: If you import the actions _before_ configuring the extensions, you will see errors on the actions because it could not find the extensions. Configure the extensions (as described [above](#prerequisites)), and re-import the action JSON file.
 
