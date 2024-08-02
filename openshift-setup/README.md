@@ -55,11 +55,18 @@ To deploy this project on OpenShift, follow these steps from the `RAG-LLM-App/ap
     spec:
         containers:
             - resources: {}
-            terminationMessagePath: /dev/termination-log
-            name: rag-llm-app
+              terminationMessagePath: /dev/termination-log
+              name: rag-llm-app
     ```
-
-    Below the name, paste the content from the `RAG-LLM-App/openshift-setup/snippet_deployment.yaml` and save it.
+    or 
+    ```
+    spec:
+        containers:
+            - name: rag-llm-app
+              resources: {}
+              terminationMessagePath: /dev/termination-log
+    ```
+    Below the `name` label, paste the content from the `RAG-LLM-App/openshift-setup/snippet_deployment.yaml` and save it.
 
      Example:
     ```
