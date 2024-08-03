@@ -4,7 +4,7 @@
   "valid": true,
   "status": "Available",
   "created": "2024-08-01T21:29:34.483Z",
-  "updated": "2024-08-02T23:17:11.547Z",
+  "updated": "2024-08-03T01:11:07.465Z",
   "language": "en",
   "skill_id": "621a5e10-12c3-4e96-a4cc-9f03cca9aa60",
   "workspace": {
@@ -129,6 +129,17 @@
                   ],
                   "response_type": "text",
                   "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_622_result_1",
+                    "variable_path": "body.llm_response"
+                  },
+                  "skill_variable": "model_response"
                 }
               ]
             },
@@ -1049,15 +1060,6 @@
         }
       },
       {
-        "title": "extension_input_data",
-        "variable": "extension_input_data",
-        "data_type": "any",
-        "description": "Formatted user query for WML deployment",
-        "initial_value": {
-          "expression": "[  {    \"fields\": [      \"Text\"    ],    \"values\": [      [input.text]    ]  }]"
-        }
-      },
-      {
         "title": "llm_instructions",
         "privacy": {
           "enabled": false
@@ -1080,9 +1082,12 @@
       },
       {
         "title": "model_input",
+        "privacy": {
+          "enabled": false
+        },
         "variable": "model_input",
         "data_type": "string",
-        "description": "input to the watsonx model"
+        "description": "Additional input to the watsonx model"
       },
       {
         "title": "model_parameters_max_new_tokens",
@@ -1122,11 +1127,14 @@
       },
       {
         "title": "model_parameters_temperature",
+        "privacy": {
+          "enabled": false
+        },
         "variable": "model_parameters_temperature",
         "data_type": "number",
         "description": "he value used to control the next token probabilities. The range is from 0.05 to 1.00; 0.05 makes it mostly deterministic.",
         "initial_value": {
-          "scalar": 0
+          "scalar": 0.7
         }
       },
       {
@@ -1157,25 +1165,13 @@
         "description": ""
       },
       {
-        "title": "result",
-        "variable": "result",
-        "data_type": "string",
-        "description": ""
-      },
-      {
-        "title": "search_results",
-        "variable": "search_results",
-        "data_type": "any",
-        "description": "Response object from Discovery query (https://cloud.ibm.com/apidocs/discovery-data#query)."
-      },
-      {
         "title": "wd_collection_id",
         "privacy": {
           "enabled": false
         },
         "variable": "wd_collection_id",
         "data_type": "string",
-        "description": "ID for the Watson Discovery Collection within the project"
+        "description": "Optional: ID for the Watson Discovery Collection within the project"
       },
       {
         "title": "wd_document_names",
@@ -1184,7 +1180,7 @@
         },
         "variable": "wd_document_names",
         "data_type": "any",
-        "description": "Optional array with list of documents to search in Watson Discovery project and collection, example [\"acme.pdf\", \"test.docx\"]"
+        "description": "Optional: array with list of documents to search in Watson Discovery project and collection, example [\"acme.pdf\", \"test.docx\"]"
       },
       {
         "title": "wd_project_id",
@@ -1193,7 +1189,10 @@
         },
         "variable": "wd_project_id",
         "data_type": "string",
-        "description": "To use queryWDLLM api you MUST set this value to the project ID of the Watson Discovery project containing your data"
+        "description": "Required: Value to the project ID of the Watson Discovery project containing your data",
+        "initial_value": {
+          "scalar": "1fef694b-86ea-4260-8440-bc29989de92e"
+        }
       },
       {
         "title": "wd_return_params",

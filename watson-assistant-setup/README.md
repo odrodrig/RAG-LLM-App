@@ -48,11 +48,16 @@ Elasticsearch only:
 - `es_model_text_field`: Name of field containing the text embeddings. **Required**
 
 Watson Discovery only:
-- `wd_collection_id`: ID for document collection to search in.
+- `wd_project_id`: ID for project to use. To find the project id, go to the **Integrate and deploy** page within the Watson Discovery Application and open the **API Information** tab. **Required**
+- `wd_collection_id`: ID for document collection to search in. If not specified, all collections will be searched. To get your collection id, you can run:
+    ```
+    curl -X GET -u "apikey:<apikey>"  "<wd_url>/v2/projects/<wd_project_id>/collections?version=2023-03-31"
+    ```
+    To find the **Watson Discovery** URL, open the service instance and look under **Service credentials**.
+    
 - `wd_document_names`: Specific set of documents to search in.
-- `wd_project_id`: ID for project to use. **Required**
 - `wd_return_params`: Fields to return from document
-- `wd_version`: URL version
+- `wd_version`: URL version. Defaults to `2023-03-31`.
 
 Common variables for both APIs:
 - `llm_instructions`: Prompt to send in to LLM
