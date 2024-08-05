@@ -14,21 +14,21 @@ Use this specification file to create and add the extension to your assistant.
 
 1.  After you build the extension, and it appears on your **Integrations** page, click **Add** to add it to your assistant. For general instructions on adding any custom extension, see [Adding an extension to your assistant](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-add-custom-extension).
 
-1.  In **Authentication**, choose **OAuth 2.0**. Select **Custom apikey** as the grant type in the next dropdown, and then copy and paste the value you set for RAG_APP_API_KEY in your environment variables.
+1.  In **Authentication**, choose **OAuth 2.0**. Select **Custom apikey** as the grant type in the next dropdown, and then copy and paste the value you set for **RAG_APP_API_KEY** in your environment variables.
 
 1.  In **Servers**, under **Server Variables**, add the url (without the https) for your hosted application as `llm_route`. 
 
 If you add apis and capabilities to this application, feel free to add them to the openapi specification. The application is intended to be an example of how to get started. If you add APIs after the Actions have been loaded, you will need to download your Actions, upload the new Open API spec and re-upload your Actions.
 
-## Upload sample action
-
-Use **Actions Global Settings** (see wheel icon top right of **Actions** page) to upload the [`RAG-LLM-App-action.json`](./RAG-LLM-App-action.json) file in this directory to your assistant. For more information, see [Uploading](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-backup-restore#backup-restore-import). You may also need to refresh the action **Preview** chat, after uploading, to get all the session variables initialized before these actions will work correctly.
-
-Under **Variables->Created by you** within the **Actions** page, set the `es_index_name` session variable .
-
-**NOTE**: If you import the actions _before_ configuring the extension, you will see errors on the actions because it could not find the extension. Configure the extension (as described [above](#prerequisites)), and re-import the action JSON file.
+## Upload sample actions
 
 This utility includes [a JSON file with sample actions](./rag-app-actions.json) that are configured to use the `rag-app` extension.
+
+Use **Actions Global Settings** (see wheel icon top right of **Actions** page) to upload the `RAG-LLM-App-action.json` to your assistant. For more information, see [Uploading](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-backup-restore#backup-restore-import). You may also need to refresh the action **Preview** chat, after uploading, to get all the session variables initialized before these actions will work correctly.
+
+Under **Variables->Created by you** within the **Actions** page, set the `es_index_name` session variable.
+
+**NOTE**: If you import the actions _before_ configuring the extension, you will see errors on the actions because it could not find the extension. Configure the extension (as described [above](#prerequisites)), and re-import the action JSON file.
 
 | Action                        | Description                                                                                                                                                                                   |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
