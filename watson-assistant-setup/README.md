@@ -18,7 +18,7 @@ Use this specification file to create and add the extension to your assistant.
 
 1.  In **Servers**, under **Server Variables**, add the url (without the https) for your hosted application as `llm_route`. 
 
-If you add apis and capabilities to this application, feel free to add them to the openapi specification. The application is intended to be an example of how to get started.
+If you add apis and capabilities to this application, feel free to add them to the openapi specification. The application is intended to be an example of how to get started. If you add APIs after the Actions have been loaded, you will need to download your Actions, upload the new Open API spec and re-upload your Actions.
 
 ## Upload sample action
 
