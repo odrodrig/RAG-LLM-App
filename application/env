@@ -15,6 +15,7 @@ COS_ENDPOINT_URL=""
 
 # Watsonx.ai - used by searchLLM
 WX_URL="https://us-south.ml.cloud.ibm.com"
+# To find the watsonx.ai project, go into watsonx.ai GUI (https://dataplatform.cloud.ibm.com/wx/home), look under Projects, open the project, go to Manage->General tab. You will see the project ID.
 WX_PROJECT_ID=""
 
 # Elasticsearch connection, used by searchLLM
