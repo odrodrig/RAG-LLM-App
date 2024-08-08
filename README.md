@@ -138,7 +138,8 @@ The `queryLLM` API queries a connected Elasticsearch database then sends the ret
     At a minimum, specify:
     ```
     {
-      "question": "<your question>"
+      "question": "<your question>",
+      "es_index_name": "<your index>"
     }
     ```
     All other values have defaults, you can adjust the other parameters to improve your results.
