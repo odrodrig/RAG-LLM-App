@@ -1,8 +1,8 @@
 # Deploy the RAG LLM Application to Code Engine
 
-This terraform code will create and deploy the RAG-LLM Service appplication code onto **IBM Cloud Code Engine**. A Code Engine project is created and used for deploying the application. The container image is built and pushed to the IBM Cloud Container Registry. The application is created with a single instance. Changes can be made to the applicaton deployment as needed.
+This terraform code will create and deploy the RAG-LLM Service application code onto **IBM Cloud Code Engine**. A Code Engine project is created and used for deploying the application. The container image is built and pushed to the IBM Cloud Container Registry. The application is created with a single instance. Changes can be made to the applicaton deployment as needed.
 
-
+**NOTE:** Make sure the user deploying this application has the correct permissions for the `Container Registry` and [Kubernetes](https://cloud.ibm.com/docs/containers?topic=containers-iam-platform-access-roles) services.  For more information on 
 
 ## Using a Schematics workspace on IBM Cloud
 
