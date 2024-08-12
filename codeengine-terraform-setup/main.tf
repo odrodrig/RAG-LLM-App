@@ -6,10 +6,11 @@ resource "random_string" "suffix" {
 }
 
 locals {
-  project_name = "${var.project_name}"
+  project_name = "${var.ce_project_name}"
   resource_group = "${var.resource_group}-${random_string.suffix.result}"
   cr_namespace = "${var.cr_namespace}"
-  secret = "${var.cr_secret}"
+  secret = "${var.ce_buildsecret}"
+  container_registry = "us.icr.io"
   imagename = "${var.cr_imagename}"
   buildname = "${var.ce_buildname}"
   appname = "${var.ce_appname}"
@@ -33,14 +34,14 @@ data "ibm_resource_group" "group" {
 
 # Grab the project_id if it exists
 data "external" "project_search" {
-  program = ["bash", "${path.module}/scripts/fetch_projectid.sh", "${var.project_name}", data.ibm_iam_auth_token.tokendata.iam_access_token]
+  program = ["bash", "${path.module}/scripts/fetch_projectid.sh", "${var.ce_project_name}", data.ibm_iam_auth_token.tokendata.iam_access_token]
 }
 
 # Create a code engine project if it's needed
 resource "ibm_code_engine_project" "code_engine_project_instance" {
   depends_on = [ data.external.project_search ]
   count             = data.external.project_search.result.exists == "false" ? 1 : 0
-  name              = "${var.project_name}"
+  name              = "${var.ce_project_name}"
   resource_group_id = data.ibm_resource_group.group.id
 }
 
@@ -64,12 +65,12 @@ resource "ibm_cr_namespace" "rg_namespace" {
 # Create a secret in code engine for pulling the image
 resource "ibm_code_engine_secret" "code_engine_secret_instance" {
   project_id = local.project_id
-  name = local.secret
+  name = "${var.ce_buildsecret}"
   format = "registry"
   data = {
       username="iamapikey"
       password="${var.ibmcloud_api_key}"
-      server="us.icr.io"
+      server=local.container_registry
       email=""
     }
 }
@@ -78,7 +79,7 @@ resource "ibm_code_engine_secret" "code_engine_secret_instance" {
 resource "ibm_code_engine_build" "code_engine_build_instance" {
   project_id    = local.project_id
   name          = "${var.ce_buildname}"
-  output_image  = "us.icr.io/${local.cr_namespace}/${local.imagename}"
+  output_image  = "${local.container_registry}/${local.cr_namespace}/${local.imagename}"
   output_secret = ibm_code_engine_secret.code_engine_secret_instance.name
   source_url    = "${var.source_url}"
   source_revision = "${var.source_revision}"
