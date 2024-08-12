@@ -1,12 +1,7 @@
-variable "project_name" {
-  type    = string
-  default = "rag-llm"
-  description = "Name of Code Engine project"
-}
 
 variable "resource_group" {
   type    = string
-  default = "rag-llm"
+  default = "Default"
   description = "Resource group where project and application will reside. Must already exist"
 }
 
@@ -30,20 +25,26 @@ variable "source_context_dir" {
 
 variable "cr_namespace" {
   type    = string
-  default = "rag-images"
+  default = ""
   description = "Container Registry namespace"
 }
 
-variable "cr_secret" {
+variable "cr_imagename" {
+  type        = string
+  description = "Build image"
+  default = "rag-llm"
+}
+
+variable "ce_buildsecret" {
   type        = string
   description = "Code Engine build secret"
   default = "buildsecret"
 }
 
-variable "cr_imagename" {
-  type        = string
-  description = "Code Engine build image"
-  default = "rag-llm"
+variable "ce_project_name" {
+  type    = string
+  default = ""
+  description = "Name of Code Engine project"
 }
 
 variable "ce_buildname" {
