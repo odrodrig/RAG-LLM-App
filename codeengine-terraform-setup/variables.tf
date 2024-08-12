@@ -7,7 +7,7 @@ variable "project_name" {
 variable "resource_group" {
   type    = string
   default = "rag-llm"
-  description = "Resource group where project and application will reside"
+  description = "Resource group where project and application will reside. Must already exist"
 }
 
 variable "source_url" {
