@@ -40,7 +40,7 @@ data "external" "project_search" {
 resource "ibm_code_engine_project" "code_engine_project_instance" {
   depends_on = [ data.external.project_search ]
   count             = data.external.project_search.result.exists == "false" ? 1 : 0
-  name              = local.project_name
+  name              = "${var.project_name}"
   resource_group_id = data.ibm_resource_group.group.id
 }
 
@@ -49,7 +49,7 @@ data "ibm_cr_namespaces" "get_rg_namespace" {}
 
 # Determine if a cr_namespace exists, if it does, use it, otherwise create it.
 locals {
-  existing_namespace = [for ns in data.ibm_cr_namespaces.get_rg_namespace.namespaces : ns if ns.name == local.cr_namespace]
+  existing_namespace = [for ns in data.ibm_cr_namespaces.get_rg_namespace.namespaces : ns if ns.name == "${var.cr_namespace}"]
   namespace_exists = length(local.existing_namespace) > 0
 }
 
@@ -57,7 +57,7 @@ locals {
 resource "ibm_cr_namespace" "rg_namespace" {
   depends_on = [ data.ibm_cr_namespaces.get_rg_namespace ]
   count             = local.namespace_exists ? 0 : 1
-  name              = local.cr_namespace
+  name              = "${var.cr_namespace}"
   resource_group_id = data.ibm_resource_group.group.id
 }
 
@@ -77,7 +77,7 @@ resource "ibm_code_engine_secret" "code_engine_secret_instance" {
 # Create a build instance
 resource "ibm_code_engine_build" "code_engine_build_instance" {
   project_id    = local.project_id
-  name          = local.buildname
+  name          = "${var.ce_buildname}"
   output_image  = "us.icr.io/${local.cr_namespace}/${local.imagename}"
   output_secret = ibm_code_engine_secret.code_engine_secret_instance.name
   source_url    = "${var.source_url}"
