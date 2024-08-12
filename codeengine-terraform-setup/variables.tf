@@ -108,7 +108,7 @@ variable "wxd_password" {
 
 variable "wxd_url" {
   type        = string
-  description = "Elasticsearch URL and port"
+  description = "Elasticsearch URL and port. Get from Elasticsearch DB Service Credentials"
   default = ""
 }
 
