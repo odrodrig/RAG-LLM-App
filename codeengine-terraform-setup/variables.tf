@@ -60,19 +60,19 @@ variable "ce_appname" {
 
 variable "cos_ibm_cloud_api_key" {
   type        = string
-  description = "COS API Key"
+  description = "COS Bucket API Key. Service Credentials -> <bucket name>"
   default = ""
 }
 
 variable "cos_instance_id" {
   type        = string
-  description = "COS Instance ID"
+  description = "COS Instance ID. Service Credentials -> <bucket name>"
   default = ""
 }
 
 variable "cos_endpoint_url" {
   type        = string
-  description = "COS endpoint"
+  description = "COS endpoint. Open bucket, go into Configuration tab, public endpoint"
   default = ""
 }
 
@@ -90,37 +90,37 @@ variable "wx_project_id" {
 
 variable "wx_url" {
   type        = string
-  description = "watsonx URL with port number"
-  default = ""
+  description = "watsonx URL"
+  default = "https://us-south.ml.cloud.ibm.com"
 }
 
 variable "wxd_username" {
   type        = string
-  description = "watsonx discovery user"
-  default = ""
+  description = "Elasticsearch user"
+  default = "admin"
 }
 
 variable "wxd_password" {
   type        = string
-  description = "watsonx discovery password"
+  description = "Elasticsearch password"
   default = ""
 }
 
 variable "wxd_url" {
   type        = string
-  description = "watsonx discovery URL"
+  description = "Elasticsearch URL and port"
   default = ""
 }
 
 variable "wd_api_key" {
   type        = string
-  description = "watson discovery apikey"
+  description = "Watson Discovery apikey. Get from WD Service Credentials"
   default = "************"
 }
 
 variable "wd_url" {
   type        = string
-  description = "watson discovery URL"
+  description = "Watson Discovery URL. Get from WD Service Credentials"
   default = "https://<url>"
 }
 
