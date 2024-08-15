@@ -61,13 +61,13 @@ variable "ce_appname" {
 
 variable "cos_ibm_cloud_api_key" {
   type        = string
-  description = "COS Bucket API Key. Service Credentials -> <bucket name>. Ends with ::"
+  description = "COS Bucket API Key. Service Credentials -> <bucket name>"
   default = ""
 }
 
 variable "cos_instance_id" {
   type        = string
-  description = "COS Instance ID. Service Credentials -> <bucket name>"
+  description = "COS Instance ID. Service Credentials -> <bucket name>. Ends with ::"
   default = ""
 }
 
