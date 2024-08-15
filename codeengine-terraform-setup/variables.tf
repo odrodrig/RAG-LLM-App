@@ -1,20 +1,26 @@
 
+variable "region" {
+  description = "Region where Code Engine project will be created"
+  type        = string
+  default     = "us-south"
+}
+
 variable "resource_group" {
   type    = string
   default = "Default"
-  description = "Resource group where project and application will reside. Must already exist"
+  description = "Resource group where Code Engine project and application will reside. Must already exist"
 }
 
 variable "source_url" {
   type    = string
   default = ""
-  description = "Git repo name"
+  description = "Git repo source name"
 }
 
 variable "source_revision" {
   type    = string
   default = "main"
-  description = "Git branch name"
+  description = "Git repo branch name"
 }
 
 variable "source_context_dir" {
@@ -35,16 +41,16 @@ variable "cr_imagename" {
   default = "rag-llm"
 }
 
-variable "ce_buildsecret" {
-  type        = string
-  description = "Code Engine build secret"
-  default = "buildsecret"
-}
-
 variable "ce_project_name" {
   type    = string
   default = ""
   description = "Name of Code Engine project"
+}
+
+variable "ce_buildsecret" {
+  type        = string
+  description = "Code Engine build secret"
+  default = "buildsecret"
 }
 
 variable "ce_buildname" {
@@ -79,13 +85,13 @@ variable "cos_endpoint_url" {
 
 variable "rag_app_api_key" {
   type        = string
-  description = "RAG APP User Created Key"
+  description = "RAG APP User Created Key, used for API authentication"
   default = ""
 }
 
 variable "wx_project_id" {
   type        = string
-  description = "watsonx project id"
+  description = "watsonx.ai project id. Open the project, go to Management->General->Details"
   default = ""
 }
 
@@ -125,8 +131,4 @@ variable "wd_url" {
   default = "https://<url>"
 }
 
-variable "region" {
-  description = "Region where Code Engine project will be created"
-  type        = string
-  default     = "us-south"
-}
+
