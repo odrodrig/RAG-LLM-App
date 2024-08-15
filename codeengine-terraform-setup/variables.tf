@@ -73,7 +73,7 @@ variable "cos_instance_id" {
 
 variable "cos_endpoint_url" {
   type        = string
-  description = "COS endpoint. Open bucket, go into Configuration tab, public endpoint"
+  description = "COS endpoint. Open bucket, go into Configuration tab, public endpoint, make sure to add the https://<URL>"
   default = ""
 }
 
