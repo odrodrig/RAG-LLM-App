@@ -22,7 +22,7 @@ If you add apis and capabilities to this application, feel free to add them to t
 
 ## Upload sample actions
 
-This utility includes [a JSON file with sample actions](./rag-app-actions.json) that are configured to use the `rag-app` extension.
+This utility includes [a JSON file with sample actions](./RAG-LLM-App-action.json) that are configured to use the `rag-app` extension.
 
 Use **Actions Global Settings** (see wheel icon top right of **Actions** page) to upload the `RAG-LLM-App-action.json` to your assistant. For more information, see [Uploading](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-backup-restore#backup-restore-import). You may also need to refresh the action **Preview** chat, after uploading, to get all the session variables initialized before these actions will work correctly.
 
