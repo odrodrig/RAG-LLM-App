@@ -43,7 +43,7 @@ variable "cr_imagename" {
 
 variable "ce_project_name" {
   type    = string
-  default = ""
+  default = "rag-llm-app"
   description = "Name of Code Engine project"
 }
 
