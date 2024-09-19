@@ -1,5 +1,8 @@
 # Watsonx.ai RAG Application
 
+## This repo has been officially merged back into [https://github.com/ibm-build-lab/RAG-LLM-Service/tree/main](https://github.com/ibm-build-lab/RAG-LLM-Service/tree/main).  Please use that code.  This repository will no longer be supported.
+
+
 This application exposes APIs to help set up a RAG pipeline using either **Watson Discovery** or **watsonx Discovery** (Elasticsearch) as the document respository.
 
 This README will guide you through the steps to deploy the project locally, on OpenShift or IBM Code Engine. Additionally, you will learn how to access the Swagger documentation once the project is deployed.
